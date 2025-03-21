@@ -1,0 +1,195 @@
+/* General Styles */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  background-color: #1E1B18; /* Dark brown */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  text-align: center;
+  overflow: hidden;
+  color: #EAE0C8; /* Warm cream */
+}
+
+.container {
+  width: 100%;
+  max-width: 600px;
+}
+
+h1 {
+  font-size: 2rem;
+  color: #EAE0C8; /* Warm cream */
+  margin-bottom: 20px;
+}
+
+/* Popcorn Button Styles */
+.popcorn-button {
+  background-color: #FFB400; /* Bright golden yellow */
+  border: none;
+  padding: 20px 50px;
+  font-size: 1.5rem;
+  color: #1E1B18; /* Dark brown for contrast */
+  border-radius: 10px;
+  cursor: pointer;
+  position: relative;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s ease, box-shadow 0.1s ease, background-color 0.3s ease;
+}
+
+.popcorn-button:hover {
+  background-color: #E09B00; /* Deeper gold */
+  transform: translateY(-4px);
+}
+
+.popcorn-button:active {
+  transform: translateY(2px);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Popcorn Container */
+#popcornContainer {
+  margin-top: 30px;
+  position: relative;
+  height: 300px;
+  width: 100%;
+}
+
+/* Popcorn Shape */
+.popcorn {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 40px;
+  height: 40px;
+  background-color: #faeac2;
+  border-radius: 50%;
+  box-shadow: inset -4px -4px 8px #d8b984;
+  transform: translateX(-50%);
+}
+
+.popcorn::before,
+.popcorn::after {
+  content: "";
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: #faeac2;
+  border-radius: 50%;
+  box-shadow: inset -4px -4px 8px #d8b984;
+}
+
+.popcorn::before {
+  top: -30px;
+  left: 5px;
+}
+
+.popcorn::after {
+  top: -25px;
+  right: 5px;
+}
+
+/* Popcorn Popping Animation */
+@keyframes pop {
+  0% {
+    transform: translate(-50%, 0) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -120px) scale(1.3);
+  }
+  100% {
+    transform: translate(-50%, -200px) scale(0.5);
+    opacity: 0;
+  }
+}
+
+.popcorn {
+  animation: pop 1s ease-in-out forwards;
+}
+
+/* Popcorn Count Styling */
+#popCount {
+  font-size: 1.2rem;
+  color: #EAE0C8;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+/* Funny Message Styling */
+#funnyMessage {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #FFDD67; 
+  background: #1E1B18; 
+  padding: 15px 25px;
+  border-radius: 15px;
+  display: inline-block;
+  box-shadow: 5px 5px 0px #E09B00; 
+  text-shadow: 3px 3px 0px #000;
+  transform-origin: center;
+  animation: shake 0.3s infinite alternate ease-in-out, 
+             bounce 1s infinite ease-in-out, 
+             stretch 1.5s infinite alternate ease-in-out;
+}
+
+/* Wiggle Animation */
+@keyframes shake {
+  0% { 
+    transform: rotate(-2deg) scale(1); 
+  }
+  100% { 
+    transform: rotate(2deg) scale(1.1); 
+  }
+}
+
+/* Bouncy Effect */
+@keyframes bounce {
+  0%, 100% { 
+    transform: translateY(0); 
+  }
+  50% { 
+    transform: translateY(-8px); 
+  }
+}
+
+/* Stretchy Effect */
+@keyframes stretch {
+  0% { 
+    letter-spacing: 0px; 
+    transform: scale(1); 
+  }
+  100% { 
+    letter-spacing: 3px; 
+    transform: scale(1.1); 
+  }
+}
+
+/* Confetti */
+.confetti {
+  position: absolute;
+  bottom: 100%;
+  width: 15px;  
+  height: 15px; 
+  background-color: #FFDD67;
+  animation: confetti-animation 1.5s linear infinite;
+}
+
+.confetti:nth-child(2n) {
+  background-color: #FF6B6B; 
+}
+
+.confetti:nth-child(3n) {
+  background-color: #A5E65A;
+}
+
+/* Confetti animation */
+@keyframes confetti-animation {
+  0% {
+    transform: translateY(0) rotate(0);
+  }
+  100% {
+    transform: translateY(200px) rotate(360deg);
+    opacity: 0;
+  }
+}
